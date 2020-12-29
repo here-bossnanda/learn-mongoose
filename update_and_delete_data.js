@@ -1,5 +1,5 @@
 const mongoose = require('./config/connection');
-const Fruit = require('./models/model');
+const { Fruit } = require('./models/fruit');
 
 // UPDATE
 // UPDATE USING UPDATE ONE
