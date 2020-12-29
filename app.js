@@ -14,7 +14,6 @@ const fruitSchema = new mongoose.Schema({
 const Fruit = mongoose.model('Fruit', fruitSchema);
 
 // * SINGLE INSERT FRUIT
-
 // DATA TO INSERTED
 const apple = new Fruit({
     name: 'Apple',
@@ -44,12 +43,11 @@ const bunchOfFruit = [{
 }];
 
 // MAKE NEW FRUIT
-
 const fruits = bunchOfFruit.map(el => {
-    let newData = new Fruit({ name: el['name'], rating: el['rating'], review: el['review'] });
-    return newData
+    return new Fruit(el)
 });
 
+// INSERT MULTIPLE FRUIT
 Fruit.insertMany(fruits, err => {
     if (err) err => console.log(err)
     else {
