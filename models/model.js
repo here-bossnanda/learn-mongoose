@@ -2,9 +2,20 @@ const mongoose = require('../config/connection');
 
 // MAKE NEW SCHEMA
 const fruitSchema = new mongoose.Schema({
-    name: String,
-    rating: Number,
-    review: String
+    name: {
+        type: String,
+        required: [true, 'name is required']
+    },
+    rating: {
+        type: Number,
+        min: [1, 'Too few ranting'],
+        max: 5
+
+    },
+    review: {
+        type: String,
+        required: [true, 'review is required']
+    }
 })
 
 // CREATE MODEL FRUIT
